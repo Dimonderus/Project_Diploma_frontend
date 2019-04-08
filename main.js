@@ -30,7 +30,7 @@
                     });
 
                 particleSystem.eachNode( //теперь каждую вершину
-                    function(node, pt){  //получаем вершину и точку где она
+                    function(node, pt){  //получаем aвершину и точку где она
                         var w = 20;   //ширина квадрата
                         ctx.fillStyle = "orange"; //с его цветом понятно
                         ctx.fillRect(pt.x-w/2, pt.y-w/2, w,w); //рисуем
@@ -88,9 +88,9 @@
         sys.parameters({gravity:true}); // гравитация вкл
         sys.renderer = Renderer("#viewport") //начинаем рисовать в выбраной области
 
-        $.getJSON("package.json", //получаем с сервера файл с данными
+        $.getJSON("1.json", //получаем с сервера файл с данными
             function(data){
-                $.each(data.nodes, function(i,node){
+                $.each(data.node, function(i,node){
                     sys.addNode(node.name); //добавляем вершину
                 });
 

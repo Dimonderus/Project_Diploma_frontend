@@ -10,9 +10,12 @@ body{
 }
 #Name_Node{
     color: crimson;
+    text-align: center;
 }
 #data{
     background-color: rgba(255,255,255,0.95);
     margin-left: 15px;
 }
-
+#help{
+    font-size: 12pt;
+}
