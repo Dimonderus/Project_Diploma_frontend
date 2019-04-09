@@ -90,15 +90,13 @@
 
         $.getJSON("1.json", //получаем с сервера файл с данными
             function(data){
-                $.each(data.names, function(i,names){
-                    sys.addNode(names); //добавляем вершину
+                $.each(data.nodes, function(i,name){
+                    sys.addNode(name.name); //добавляем вершину
                 });
-
                 $.each(data.edges, function(i,edge){
                     sys.addEdge(sys.getNode(edge.src),sys.getNode(edge.dest)); //добавляем грань
                 });
             });
-
     })
 
 })(this.jQuery)
