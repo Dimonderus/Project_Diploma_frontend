@@ -41,22 +41,11 @@
                 <?php
 
                 if (isset($_POST['name_node'])) {
-                    $array = $_POST['name_node'];
+                    $array["names"] = $_POST['name_node'];
                     print_r($array);
-
-                    foreach ( $_POST['name_node'] as $k=>$m) {
-                        if (!empty($m)) { $mass[$k] = $m; }
-                    }
-                    foreach ($array as $item=>$value){
-                        $array1 = array_slice($mass,$i,1,true);
-                        $i++;
-                        $js = json_encode($array1, JSON_FORCE_OBJECT);
-
-                    }
-                    $file_json = fopen('1.json', 'w');
-                    $file_json_write = fwrite($file_json,$js);
-
-
+                    $array_json = json_encode($array);
+                    $js_write = fopen('1.json', 'w');
+                    $js_write_2 = fwrite($js_write,$array_json);
                 } else {
                     print 'пусто';
                 }
@@ -64,7 +53,7 @@
             </div>
             <div class="col-md-5">
                 <div class="form-group">
-                    <?php echo json_decode('1.json'); ?>
+
                 </div>
         </div>
     </div>

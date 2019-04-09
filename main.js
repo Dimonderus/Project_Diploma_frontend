@@ -88,10 +88,10 @@
         sys.parameters({gravity:true}); // гравитация вкл
         sys.renderer = Renderer("#viewport") //начинаем рисовать в выбраной области
 
-        $.getJSON("data.json", //получаем с сервера файл с данными
+        $.getJSON("1.json", //получаем с сервера файл с данными
             function(data){
-                $.each(data.names, function(i,node){
-                    sys.addNode(node.name); //добавляем вершину
+                $.each(data.names, function(i,names){
+                    sys.addNode(names); //добавляем вершину
                 });
 
                 $.each(data.edges, function(i,edge){
