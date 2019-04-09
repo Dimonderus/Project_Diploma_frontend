@@ -22,7 +22,7 @@
                 particleSystem.eachEdge( //отрисуем каждую грань
                     function(edge, pt1, pt2){ //будем работать с гранями и точками её начала и конца
                         ctx.strokeStyle = "rgba(0,0,0, .333)"; //грани будут чёрным цветом с некой прозрачностью
-                        ctx.lineWidth = 2; //толщиной в один пиксель
+                        ctx.lineWidth = 1; //толщиной в один пиксель
                         ctx.beginPath();  //начинаем рисовать
                         ctx.moveTo(pt1.x, pt1.y); //от точки один
                         ctx.lineTo(pt2.x, pt2.y); //до точки два
@@ -30,8 +30,8 @@
                     });
 
                 particleSystem.eachNode( //теперь каждую вершину
-                    function(node, pt){  //получаем aвершину и точку где она
-                        var w = 20;   //ширина квадрата
+                    function(node, pt){  //получаем вершину и точку где она
+                        var w = 10;   //ширина квадрата
                         ctx.fillStyle = "orange"; //с его цветом понятно
                         ctx.fillRect(pt.x-w/2, pt.y-w/2, w,w); //рисуем
                         ctx.fillStyle = "black"; //цвет для шрифта
@@ -88,9 +88,9 @@
         sys.parameters({gravity:true}); // гравитация вкл
         sys.renderer = Renderer("#viewport") //начинаем рисовать в выбраной области
 
-        $.getJSON("1.json", //получаем с сервера файл с данными
+        $.getJSON("data.json", //получаем с сервера файл с данными
             function(data){
-                $.each(data.node, function(i,node){
+                $.each(data.names, function(i,node){
                     sys.addNode(node.name); //добавляем вершину
                 });
 
