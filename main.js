@@ -93,10 +93,15 @@
                 $.each(data.nodes, function(i,name){
                     sys.addNode(name.name); //добавляем вершину
                 });
-                $.each(data.edges, function(i,edge){
+            });
+        $.getJSON("2.json", //получаем с сервера файл с данными
+            function(data_1){
+                $.each(data_1.edges, function(i,edge){
                     sys.addEdge(sys.getNode(edge.src),sys.getNode(edge.dest)); //добавляем грань
                 });
             });
+
+
     })
 
 })(this.jQuery)

@@ -23,7 +23,7 @@
                     </div>
                     <button type="submit" class="btn btn-success" name="OK">Подтвердить</button>
                 </form>
-                <form action="" method="post">
+                <form action="main2.php" method="post">
                     <?php
                     if (isset($_POST['OK'])){
                         $number_node = $_POST['number_node'];
@@ -39,22 +39,7 @@
                 </form>
             </div>
             <div class="col-lg-5">
-                <?php
-                if (isset($_POST['name_node'])) {
-                $array = $_POST['name_node'];
-                foreach ($array as $value){
-                    $new['nodes'][]['name'] = $value;
-                }
-                $array_json = json_encode($new);
-                $js_write = fopen('1.json', 'w');
-                $js_write_2 = fwrite($js_write,$array_json);?>
-                    <canvas id="viewport" width=600" height="500"></canvas>
-                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-                    <script src="lib/arbor.js"></script>
-                    <script src="lib/arbor-tween.js"></script>
-                    <script src="main.js"></script>
-                    <a href="index.php"><button type="submit" class="btn btn-success" >Подтвердить</button></a>
-                <?php } ?>
+
             </div>
         </div>
     </div>
