@@ -31,22 +31,22 @@
             <form action="" method="post">
                 <div class="form-group">
                     <label for="exampleInputPassword1">Источнки:</label>
-                <input type="text" name="src[]" id="" placeholder="Укажите узел">
+                <input type="text" name="src[]" id="" placeholder="Укажите узел" required>
                 </div>
                 <div class="form-group">
                     <label for="Example">Конечный:</label>
-                    <input type="text" name="dest[]" id="" placeholder="Укажите узел">
+                    <input type="text" name="dest[]" id="" placeholder="Укажите узел" required>
                 </div>
                 <div class="form-group">
                     <label for="Example">Задержка:</label>
-                    <input type="text" name="delay[]" id="" placeholder="Укажите задержку">
+                    <input type="text" name="delay[]" id="" placeholder="Укажите задержку" required>
                 </div>
                 <button type="submit" class="btn btn-success" name="OK">Подтвердить</button>
             </form>
             <?php
             if (isset($_POST['src'])){
                 if (isset($_POST['dest'])){
-                    $js_read = file_get_contents('2.json', true);
+                    print_r($js_read = file_get_contents('2.json', true));
                     $array = $_POST['src'];
                     $array2  = $_POST['dest'];
                     $array_delay = $_POST['delay'];
@@ -57,10 +57,10 @@
                         $js_write_2 = fwrite($js_write,$array_json);
                     }else{
                         $js_decode = json_decode($js_read,true);
-                        $js = fopen('2.json', 'a');
-                        $new_1 = array('src' => $array[0],'dest'=>$array2[0],'delay'=>$array_delay[0]);
-                        $array_push = array_push($js_decode,$new_1);
-                        
+                        $json['edges'][] = array('src' => $array[0],'dest'=>$array2[0],'delay'=>$array_delay[0]);
+                        $res_array = array_merge_recursive($js_decode, $json);
+                        file_put_contents('2.json', json_encode($res_array));
+                        unset($js_decode);
                     }
                 }
             }
