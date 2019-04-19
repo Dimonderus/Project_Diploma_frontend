@@ -1,0 +1,1 @@
+{"edges":[{"src":"name1","dest":"name2","delay":"4"},{"src":"name2","dest":"name3","delay":"4"},{"src":"name2","dest":"name0","delay":"7"},{"src":"name2","dest":"name0","delay":"7"},{"src":"name1","dest":"name0","delay":"4"},{"src":"name1","dest":"name0","delay":"4"}]}

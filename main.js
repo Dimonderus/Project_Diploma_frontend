@@ -21,8 +21,8 @@
 
                 particleSystem.eachEdge( //отрисуем каждую грань
                     function(edge, pt1, pt2){ //будем работать с гранями и точками её начала и конца
-                        ctx.strokeStyle = "rgba(0,0,0, .333)"; //грани будут чёрным цветом с некой прозрачностью
-                        ctx.lineWidth = 1; //толщиной в один пиксель
+                        ctx.strokeStyle = "rgba(0,0,0,0.35)"; //грани будут чёрным цветом с некой прозрачностью
+                        ctx.lineWidth = 2; //толщиной в один пиксель
                         ctx.beginPath();  //начинаем рисовать
                         ctx.moveTo(pt1.x, pt1.y); //от точки один
                         ctx.lineTo(pt2.x, pt2.y); //до точки два
@@ -31,12 +31,12 @@
 
                 particleSystem.eachNode( //теперь каждую вершину
                     function(node, pt){  //получаем вершину и точку где она
-                        var w = 10;   //ширина квадрата
-                        ctx.fillStyle = "orange"; //с его цветом понятно
+                        var w = 12;   //ширина квадрата
+                        ctx.fillStyle = "red"; // выбираем цвет грани
                         ctx.fillRect(pt.x-w/2, pt.y-w/2, w,w); //рисуем
                         ctx.fillStyle = "black"; //цвет для шрифта
                         ctx.font = 'italic 13px sans-serif'; //шрифт
-                        ctx.fillText (node.name, pt.x+8, pt.y+8); //пишем имя у каждой точки
+                        ctx.fillText (node.name, pt.x+10, pt.y+10); //пишем имя у каждой точки
                     });
             },
 
