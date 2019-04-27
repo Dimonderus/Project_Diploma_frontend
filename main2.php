@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
@@ -82,12 +81,29 @@
                         $res_array = array_merge_recursive($js_decode, $json);
                         file_put_contents('2.json', json_encode($res_array));
                         unset($js_decode);
-                    }
+                         }
                 }
-            }?>
+          }?>
         </div>
-        <div class="col-lg-6"><canvas id="viewport" width=800" height="500"></canvas></div>
-    </div>
+        <div class="col-lg-6"><canvas id="viewport" width="800" height="500"></canvas></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4"></div>
+                <div class="col-lg-6">
+                    <form action="test2.php" method="post">
+                        <div class="form-group">
+                            <label for="Example" id="text_label">Источник прерывания</label>
+                            <input type="text"  class="form-control" name="input" id="" placeholder="name0" required>
+                            <label for="Example" id="text_label">Обработчик прерывания</label>
+                            <input type="text"  class="form-control" name="output" id="" placeholder="name1" required>
+                        </div>
+                        <button type="submit" class="btn btn-success" name="answer" >Произвести расчеты</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
